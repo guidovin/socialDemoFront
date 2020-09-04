@@ -40,9 +40,7 @@ function ContentContainer() {
   const [ find, { loading:queryLoading, data, error } ] = useLazyQuery(FIND_QUERY);
   const [ filter, setFilter ] = React.useState("");
   const [ selectedUser, setSelectedUser ] = React.useState<User | null>(null);
-
   useEffect(()=>find({ variables: { name: filter } }), [filter])
-  
   return(
     <Container>
       <Header setFilter={setFilter} setSelectedUser={setSelectedUser} selected={!!selectedUser}/>
@@ -50,8 +48,8 @@ function ContentContainer() {
         <UserDetails user={selectedUser}/>
       }
       { !selectedUser ?
-        <UserContainer data-testid="test">
-         {data && data.find && data.find.map((user: User) => <UserCard user={user} onClick={() => setSelectedUser(user)}/>)}
+        <UserContainer data-testid="userContainer">
+         {data && data.find && data.find.map((user: User) => <UserCard data-testid="userCard" user={user} onClick={() => setSelectedUser(user)}/>)}
         </UserContainer>
                       :
         <UserContainer>
