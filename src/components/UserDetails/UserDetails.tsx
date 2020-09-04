@@ -13,7 +13,7 @@ export interface User {
 }
 
 const Container = styled.div`
-  background-color:yellow;
+  /* background-color:yellow; */
   padding:1em;
   min-width:320px;
 
@@ -57,14 +57,19 @@ const UserInfoWrapper = styled.span`
   min-width:150px;
 `;
 
+const FriendsDivider = styled.span`
+  font-size:2em; 
+  margin-left:20px;
+`;
+
 const UserDetails: FunctionComponent<{ user: User }> = ({ user }) => {
   const { name, age, email, picture } = user;
   return(
-    // react fragment example
+    // react fragment example conainer is "embedded" in parent  hierarchy
     <>
     <Container>
       <UserImg>
-        {picture && <img src={picture}/>}
+        {picture && <img src={picture} alt="avatar loading..."/>}
       </UserImg>
       <UserInfoWrapper>
         <UserInfo>name: { name }</UserInfo>
@@ -72,7 +77,7 @@ const UserDetails: FunctionComponent<{ user: User }> = ({ user }) => {
         <UserInfo>email: { email }</UserInfo>
       </UserInfoWrapper>
     </Container>
-    <span style={{ fontSize:"2em", marginLeft:"20px"}}> Friends: </span>
+    <FriendsDivider>Friends:</FriendsDivider>
     </>);
 }
 

@@ -3,11 +3,12 @@ import styled from "styled-components";
 import { FaWindowClose } from "react-icons/fa";
 
 const Container = styled.div`
-  background-color: grey;
+  /* background-color: grey; */
   display: flex;
   justify-content: flex-start;
   align-items:stretch;
   height: 13%;
+  margin-top:20px;
   @media(max-width:450px){
     min-width:350px;
   }
@@ -33,12 +34,14 @@ const Logo = styled.div<OnClickProps>`
 const SearchBar = styled.input`
   border-width: 2px;
   border-radius: 35px;
-  background-color: blue;
+  /* background-color: blue; */
   padding: 0.1em 0.1em 0.1em calc(10px + 0.1em);
   font-size:2em;
   min-width:inherit;
   margin:0px 25px 0px 25px;
-
+  &:focus {
+    outline:none;
+  };
 `;
 const AlignVertical = styled.span`
   display:flex;
@@ -67,7 +70,7 @@ const Header: FunctionComponent<{ setFilter: Function, setSelectedUser: Function
     <Container>
       <Logo onClick={onClick}>MySocial</Logo>
       <AlignVertical>
-        <SearchBar onChange={(e) => setFilter(e.target.value)} placeholder="Search"/>
+        <SearchBar data-testid="searchBar" onChange={(e) => setFilter(e.target.value)} placeholder="Search"/>
       </AlignVertical>
       {selected && <WipeSearch onClick={onClick}/>}
     </Container>);

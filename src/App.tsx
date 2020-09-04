@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { FunctionComponent } from 'react';
 import { ApolloProvider } from '@apollo/client';
 import ContentContainer from "./components/ContentContainer/ContentContainer";
 import {

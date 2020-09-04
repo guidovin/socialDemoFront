@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import UserCard from "../../components/UserCard/UserCard";
 import { FIND_QUERY, User } from "../../queries/Users/userQueries";
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery, useQuery } from '@apollo/client';
 import styled from "styled-components";
 import Header from './Header';
 import UserDetails from '../UserDetails/UserDetails';
@@ -13,7 +13,7 @@ interface ContainerProps {
 const UserContainer = styled.div<ContainerProps>`
   padding:40px;
   min-width:270px;
-  background-color:rebeccapurple;
+  /* background-color:rebeccapurple; */
   
   
   display:grid;
@@ -33,34 +33,60 @@ const UserContainer = styled.div<ContainerProps>`
 const Container = styled.div`
   height:"100vh"; 
   width:"100vw"; 
-  background-color:"red";
+  /* background-color:"red"; */
+`;
+
+const NotFoundContainer = styled.span`
+  font-size:2em;
+  margin-left:50px;
 `;
 
 function ContentContainer() {
-  const [ find, { loading:queryLoading, data, error } ] = useLazyQuery(FIND_QUERY);
+  const [ find, { loading:lazyLoading, data:lazyData, error:lazyError } ] = useLazyQuery(FIND_QUERY);
+  const { loading:queryLoading, data:initialData, error:initialError } = useQuery(FIND_QUERY);
+  //sets data to be displayd to initial data or new data from search originated from the find() function exposed by lazyQuery hook
+  const data = (lazyData && !lazyLoading && !lazyError) ? lazyData : ((initialData && !lazyLoading) ? initialData : null );
   const [ filter, setFilter ] = React.useState("");
   const [ selectedUser, setSelectedUser ] = React.useState<User | null>(null);
-  useEffect(()=>find({ variables: { name: filter } }), [filter])
+  // previously data was loaded using the useEffect hook in react as a way to showcase useEffect usage. 
+  // this introduced problems while testing and was replaced by the current cleaner version without "unexpected" async hook calls.
+  // which seems to be for the better although doesnt showcase useEffect, so here is an example on its usage:
+  /**
+   * this hook would call find(name:filter) whenever filter was changed by the Header search bar 
+   * 
+   * useEffect(()=> {
+   *  find({ variables : { data:filter }});
+   * }, [filter])
+   * 
+   * */
+  //simple example error and loading handlers
+  if(queryLoading) return <h3>Loading...</h3>
+  if(initialError) return <h3>Ops... Something went wrong</h3>
   return(
     <Container>
-      <Header setFilter={setFilter} setSelectedUser={setSelectedUser} selected={!!selectedUser}/>
+      <Header 
+        setFilter={(name: string) => { find({ variables: { name }}); setFilter(name); }} 
+        setSelectedUser={setSelectedUser} 
+        selected={!!selectedUser}
+      />
       { selectedUser && 
         <UserDetails user={selectedUser}/>
       }
       { !selectedUser ?
         <UserContainer data-testid="userContainer">
-         {data && data.find && data.find.map((user: User) => <UserCard data-testid="userCard" user={user} onClick={() => setSelectedUser(user)}/>)}
+         {data && data.find && data.find.map((user: User) => <UserCard key={user.id+Date.now()+"user"} user={user} onClick={() => setSelectedUser(user)}/>)}
         </UserContainer>
                       :
-        <UserContainer>
+        <UserContainer data-testid="friendsContainer">
           { selectedUser.friends && 
             selectedUser
               .friends
               .filter(user => user.name?.includes(filter))
-              .map((user: User) => <UserCard user={user} onClick={() => setSelectedUser(user)}/>)
+              .map((user: User) => <UserCard key={user.id+Date.now()+"friend"} user={user} onClick={() => setSelectedUser(user)}/>)
           }
         </UserContainer>
       }
+      {(!selectedUser && data?.find?.length === 0) &&<NotFoundContainer>No User Found With Search Term: {filter}</NotFoundContainer>}
     </Container>);
 }
 

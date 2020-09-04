@@ -16,15 +16,20 @@ interface ContainerProps {
 }
 
 const Container = styled.div<ContainerProps>`
-  border-width:2px;
+  border:solid 1px;
   border-radius:1em;
-  background-color:blue;
+  /* background-color:blue; */
   box-shadow: 1px 2px #222e2e;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
   padding:1em;
-  max-width:300px;
+  /* 
+    here I could set a fixed width (or dynamicaly set width) 
+    to force every card to have same width instead of maxWidth that allows 
+    some wiggle room for slightly smaller/larger cards
+  */
+  max-width:300px; 
   height:300px;
   margin:auto;
 `
@@ -43,11 +48,11 @@ const UserImg = styled.span`
 const UserCard: FunctionComponent<{ user: User, onClick: Function }> = ({ user, onClick }) => {
   const { name, age, eyeColor, company, email, picture } = user;
   return(
-    <Container onClick={(event: SyntheticEvent) => {event.preventDefault(); onClick(user)}}>
+    <Container onClick={(event: SyntheticEvent) => {event.preventDefault(); onClick(user)}} data-testid="userCard">
       <UserImg id="imgContainer">
-        <img src={picture ? picture : "../../assets/avatar_placeholder.png" }/>
+        <img src={picture} alt="avatar loading..." />
       </UserImg>
-      <UserInfo>name: { name }</UserInfo>
+      <UserInfo data-testid={name}>name: { name }</UserInfo>
       <UserInfo>age: { age }</UserInfo>
       <UserInfo>eye color: { eyeColor }</UserInfo>
       <UserInfo>company: { company }</UserInfo>
