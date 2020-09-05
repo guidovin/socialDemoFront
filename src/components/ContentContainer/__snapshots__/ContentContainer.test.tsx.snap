@@ -51,28 +51,27 @@ exports[`Tests Snapshot 1`] = `
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
               [33mdata-testid[39m=[32m\\"Cecilia Phillips\\"[39m
             [36m>[39m
-              [0mname: [0m
-              [0mCecilia Phillips[0m
+              [0mName: Cecilia Phillips[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mAge: [0m
+              [0mAge: undefined[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mEye color: [0m
+              [0mEye color: undefined[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mCompany: [0m
+              [0mCompany: undefined[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mEmail: [0m
+              [0mEmail: undefined[0m
             [36m</span>[39m
           [36m</span>[39m
         [36m</div>[39m
@@ -95,28 +94,27 @@ exports[`Tests Snapshot 1`] = `
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
               [33mdata-testid[39m=[32m\\"CeasdPhillips\\"[39m
             [36m>[39m
-              [0mname: [0m
-              [0mCeasdPhillips[0m
+              [0mName: CeasdPhillips[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mAge: [0m
+              [0mAge: undefined[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mEye color: [0m
+              [0mEye color: undefined[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mCompany: [0m
+              [0mCompany: undefined[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mEmail: [0m
+              [0mEmail: undefined[0m
             [36m</span>[39m
           [36m</span>[39m
         [36m</div>[39m
@@ -139,28 +137,27 @@ exports[`Tests Snapshot 1`] = `
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
               [33mdata-testid[39m=[32m\\"Cec ps\\"[39m
             [36m>[39m
-              [0mname: [0m
-              [0mCec ps[0m
+              [0mName: Cec ps[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mAge: [0m
+              [0mAge: undefined[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mEye color: [0m
+              [0mEye color: undefined[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mCompany: [0m
+              [0mCompany: undefined[0m
             [36m</span>[39m
             [36m<span[39m
               [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
             [36m>[39m
-              [0mEmail: [0m
+              [0mEmail: undefined[0m
             [36m</span>[39m
           [36m</span>[39m
         [36m</div>[39m

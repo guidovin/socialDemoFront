@@ -55,11 +55,11 @@ const UserCard: FunctionComponent<{ user: User, onClick: Function }> = ({ user, 
         <img src={picture} alt="avatar loading..." />
       </UserImg>
       <UserInfoArea>
-        <UserInfo data-testid={name}>name: { name }</UserInfo>
-        <UserInfo>Age: {age}</UserInfo>
-        <UserInfo>Eye color: {eyeColor}</UserInfo>
-        <UserInfo>Company: {company}</UserInfo>
-        <UserInfo>Email: {email}</UserInfo>
+        <UserInfo data-testid={name}>{`Name: ${name}`}</UserInfo>
+        <UserInfo>{`Age: ${age}`}</UserInfo>
+        <UserInfo>{`Eye color: ${eyeColor}`}</UserInfo>
+        <UserInfo>{`Company: ${company}`}</UserInfo>
+        <UserInfo>{`Email: ${email}`}</UserInfo>
       </UserInfoArea>
     </Container>);
 }
