@@ -1,16 +1,14 @@
 
-import { gql, useQuery } from '@apollo/client';
+import { gql, useQuery, ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
 
 
 const USER_FRAG = gql`
   fragment userFrag on User {
-    id
     index
     picture
     age
     eyeColor
-    name
     company
     email
     phone
@@ -25,6 +23,8 @@ const FIND_QUERY = gql`
       name
       ...userFrag
       friends {
+        id
+        name
         ...userFrag
       }
     }
@@ -53,13 +53,16 @@ function useFind({ name }: { name:string }): [User] | null {
   return data.find;
 }
 
-//fetch example using apollo's client directly. for accessibility be used with WithApollo() HoF that inject client into props
-// function find({ client, name } : { client: client , name:string }){
-
-// }
+//fetch example using apollo's client directly. for accessibility be used with WithApollo() HoF that inject client into props or apolloConsumer
+async function find({ client, name } : { client: ApolloClient<NormalizedCacheObject> , name:string }){
+  const { data, loading, error } = await client.query({query:FIND_QUERY, variables:{ name }});
+  if(loading) return null;
+  if(error) throw new Error("Failed to fetch users");
+  return data.find;
+}
 
 export { 
   FIND_QUERY,
   useFind,
-  // find
+  find
 }

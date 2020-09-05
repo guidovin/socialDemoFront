@@ -62,34 +62,64 @@ const mocks = [
         name: "Cecilia Phillips"
       }
     },
-    result: {
+    result: () => { 
+    console.log("exec0")
+    return ({
       data: {
         find: [{ 
+          id: "123",
           name: "Cecilia Phillips",
           age: "30",
           email: "ceciliaphillips@daido.com",
-          id: "123",
           index: "0",
           picture: "testStr",
           eyeColor: "testStr",
           company: "testStr",
           phone: "testStr",
-          friends: [],
+          friends: [
+            { 
+              name: "CeasdPhillips",
+              age: "30",
+              email: "ceciliaphillips@daido.com",
+              id: "123sdgsd",
+              index: "0",
+              picture: "testStr",
+              eyeColor: "testStr",
+              company: "testStr",
+              phone: "testStr",
+              friends: [],
+              greeting: "testStr",
+            },{ 
+              name: "Cec ps",
+              age: "30",
+              email: "ceciliaphillips@daido.com",
+              id: "124123",
+              index: "0",
+              picture: "testStr",
+              eyeColor: "testStr",
+              company: "testStr",
+              phone: "testStr",
+              friends: [],
+              greeting: "testStr",
+            }
+          ],
           greeting: "testStr",
         }],
       },
-    },
+    })}
   },
 ]; 
  
+
 it('Tests rendering with initial data and search query', async () => {
-  const { getByText, getByTestId } = render(
+  await act(async ()=>{
+    render(
     <MockedProvider mocks={mocks} addTypename={false}>
       <ContentContainer/>
-    </MockedProvider>
+    </MockedProvider>)}
   );
   //checks if container (that doesnt depend on the query answer) is rendered
-  const getContainer = await waitForElement(() => getByTestId("userContainer"))
+  const getContainer = await waitForElement(() => screen.findByTestId("userContainer"))
   expect(getContainer).toBeDefined();
   
   //checks if userCard (that depends on the query answer, so its proof of the query return) is rendered
@@ -97,15 +127,15 @@ it('Tests rendering with initial data and search query', async () => {
   expect(getUserCard).toBeDefined();
 
   //simulates search input and checks if executed
-  const searchBar = await waitForElement(() => getByTestId("searchBar"))//example using callback from render destructuring
+  const searchBar = await waitForElement(() => screen.findByTestId("searchBar"))//example using callback from render destructuring
   expect(searchBar).toBeDefined();
   //awaits for event execution and wraps act() around event call to signify a side-effect producing execution
-  act(()=> { fireEvent.input(searchBar, { target: { value: "Cecilia Phillips" } }) });
+  await act(async()=> { fireEvent.input(searchBar, { target: { value: "Cecilia Phillips" } }) });
 
 
-  //gets element with data-testid equal to the search value inputed. proving that the query was executed and related data rendered
-  const getUserTestId = await waitForElement(() => screen.findByTestId("Cecilia Phillips"))
-  expect(getUserTestId).toBeDefined();
+  // //gets element with data-testid equal to the search value inputed. proving that the query was executed and related data rendered
+  // const getUserTestId = await waitForElement(() => screen.findByTestId("Cecilia Phillips"))
+  // expect(getUserTestId).toBeDefined();
   //gets element that contains the text from the result of the search value inputed. 
   //confirming that the query was executed and related data rendered. Example of /i notation.
   const getUserName = await waitForElement(() => screen.findByText(/Cecilia Phillips/i))
@@ -169,25 +199,54 @@ const snapshotMocks = [
         name: "Cecilia Phillips"
       }
     },
-    result: {
+    result: () => { 
+    console.log("exec 1")
+    return ({
       data: {
         find: [{ 
+          id: "123",
           name: "Cecilia Phillips",
           age: "30",
           email: "ceciliaphillips@daido.com",
-          id: "123",
           index: "0",
           picture: "testStr",
           eyeColor: "testStr",
           company: "testStr",
           phone: "testStr",
-          friends: [],
+          friends: [
+            { 
+              name: "CeasdPhillips",
+              age: "30",
+              email: "ceciliaphillips@daido.com",
+              id: "123sdgsd",
+              index: "0",
+              picture: "testStr",
+              eyeColor: "testStr",
+              company: "testStr",
+              phone: "testStr",
+              friends: [],
+              greeting: "testStr",
+            },{ 
+              name: "Cec ps",
+              age: "30",
+              email: "ceciliaphillips@daido.com",
+              id: "124123",
+              index: "0",
+              picture: "testStr",
+              eyeColor: "testStr",
+              company: "testStr",
+              phone: "testStr",
+              friends: [],
+              greeting: "testStr",
+            }
+          ],
           greeting: "testStr",
         }],
       },
-    },
+    })}
   },
 ]; 
+ 
 it("Tests Snapshot", async () => {
   await act(async ()=> {
     render(

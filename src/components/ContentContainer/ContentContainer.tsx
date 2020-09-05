@@ -5,16 +5,16 @@ import { useLazyQuery, useQuery } from '@apollo/client';
 import styled from "styled-components";
 import Header from './Header';
 import UserDetails from '../UserDetails/UserDetails';
+import colors from "../../assets/css/colors";
 
 interface ContainerProps {
   readonly size?: string;
 };
 
 const UserContainer = styled.div<ContainerProps>`
-  padding:40px;
+  padding:25px;
   min-width:270px;
-  /* background-color:rebeccapurple; */
-  
+  background-color:${colors.background};
   
   display:grid;
   grid-gap:2em;
@@ -31,9 +31,8 @@ const UserContainer = styled.div<ContainerProps>`
 `;
 
 const Container = styled.div`
-  height:"100vh"; 
-  width:"100vw"; 
-  /* background-color:"red"; */
+  background-color:${colors.background};
+  min-width: 332px;
 `;
 
 const NotFoundContainer = styled.span`
@@ -74,7 +73,7 @@ function ContentContainer() {
       }
       { !selectedUser ?
         <UserContainer data-testid="userContainer">
-         {data && data.find && data.find.map((user: User) => <UserCard key={user.id+Date.now()+"user"} user={user} onClick={() => setSelectedUser(user)}/>)}
+         {data && data.find && data.find.map((user: User) => <UserCard key={user.id+""+Date.now()+"user"} user={user} onClick={() => setSelectedUser(user)}/>)}
         </UserContainer>
                       :
         <UserContainer data-testid="friendsContainer">
@@ -82,7 +81,7 @@ function ContentContainer() {
             selectedUser
               .friends
               .filter(user => user.name?.includes(filter))
-              .map((user: User) => <UserCard key={user.id+Date.now()+"friend"} user={user} onClick={() => setSelectedUser(user)}/>)
+              .map((user: User) => <UserCard key={user.id+""+Date.now()+"friend"} user={user} onClick={() => setSelectedUser(user)}/>)
           }
         </UserContainer>
       }

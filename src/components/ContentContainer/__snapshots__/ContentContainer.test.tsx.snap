@@ -4,32 +4,36 @@ exports[`Tests Snapshot 1`] = `
 "[36m<body>[39m
   [36m<div>[39m
     [36m<div[39m
-      [33mclass[39m=[32m\\"sc-fznKkj eIGVWQ\\"[39m
+      [33mclass[39m=[32m\\"sc-fzokOt hImtkV\\"[39m
     [36m>[39m
       [36m<div[39m
-        [33mclass[39m=[32m\\"sc-AxhCb gqCiLS\\"[39m
+        [33mclass[39m=[32m\\"sc-AxhUy osugS\\"[39m
       [36m>[39m
         [36m<div[39m
-          [33mclass[39m=[32m\\"sc-AxhUy fjEaso\\"[39m
+          [33mclass[39m=[32m\\"sc-AxgMl jWfLhC\\"[39m
         [36m>[39m
-          [0mMySocial[0m
+          [36m<b[39m
+            [33mclass[39m=[32m\\"sc-fzozJi hEeWyB\\"[39m
+          [36m>[39m
+            [0mMySocial[0m
+          [36m</b>[39m
         [36m</div>[39m
         [36m<span[39m
-          [33mclass[39m=[32m\\"sc-AxheI fapsVC\\"[39m
+          [33mclass[39m=[32m\\"sc-Axmtr bIXLFR\\"[39m
         [36m>[39m
           [36m<input[39m
-            [33mclass[39m=[32m\\"sc-AxgMl dealvG\\"[39m
+            [33mclass[39m=[32m\\"sc-AxheI couGmT\\"[39m
             [33mdata-testid[39m=[32m\\"searchBar\\"[39m
             [33mplaceholder[39m=[32m\\"Search\\"[39m
           [36m/>[39m
         [36m</span>[39m
       [36m</div>[39m
       [36m<div[39m
-        [33mclass[39m=[32m\\"sc-fznyAO cPQehk\\"[39m
+        [33mclass[39m=[32m\\"sc-fznZeY fJzJg\\"[39m
         [33mdata-testid[39m=[32m\\"userContainer\\"[39m
       [36m>[39m
         [36m<div[39m
-          [33mclass[39m=[32m\\"sc-AxjAm cqkdri\\"[39m
+          [33mclass[39m=[32m\\"sc-AxjAm gSZlCL\\"[39m
           [33mdata-testid[39m=[32m\\"userCard\\"[39m
         [36m>[39m
           [36m<span[39m
@@ -41,35 +45,39 @@ exports[`Tests Snapshot 1`] = `
             [36m/>[39m
           [36m</span>[39m
           [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-            [33mdata-testid[39m=[32m\\"Cecilia Phillips\\"[39m
+            [33mclass[39m=[32m\\"sc-AxhCb jRGgxR\\"[39m
           [36m>[39m
-            [0mname: [0m
-            [0mCecilia Phillips[0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0mage: [0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0meye color: [0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0mcompany: [0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0memail: [0m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+              [33mdata-testid[39m=[32m\\"Cecilia Phillips\\"[39m
+            [36m>[39m
+              [0mname: [0m
+              [0mCecilia Phillips[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mAge: [0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mEye color: [0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mCompany: [0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mEmail: [0m
+            [36m</span>[39m
           [36m</span>[39m
         [36m</div>[39m
         [36m<div[39m
-          [33mclass[39m=[32m\\"sc-AxjAm cqkdri\\"[39m
+          [33mclass[39m=[32m\\"sc-AxjAm gSZlCL\\"[39m
           [33mdata-testid[39m=[32m\\"userCard\\"[39m
         [36m>[39m
           [36m<span[39m
@@ -81,35 +89,39 @@ exports[`Tests Snapshot 1`] = `
             [36m/>[39m
           [36m</span>[39m
           [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-            [33mdata-testid[39m=[32m\\"CeasdPhillips\\"[39m
+            [33mclass[39m=[32m\\"sc-AxhCb jRGgxR\\"[39m
           [36m>[39m
-            [0mname: [0m
-            [0mCeasdPhillips[0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0mage: [0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0meye color: [0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0mcompany: [0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0memail: [0m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+              [33mdata-testid[39m=[32m\\"CeasdPhillips\\"[39m
+            [36m>[39m
+              [0mname: [0m
+              [0mCeasdPhillips[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mAge: [0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mEye color: [0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mCompany: [0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mEmail: [0m
+            [36m</span>[39m
           [36m</span>[39m
         [36m</div>[39m
         [36m<div[39m
-          [33mclass[39m=[32m\\"sc-AxjAm cqkdri\\"[39m
+          [33mclass[39m=[32m\\"sc-AxjAm gSZlCL\\"[39m
           [33mdata-testid[39m=[32m\\"userCard\\"[39m
         [36m>[39m
           [36m<span[39m
@@ -121,31 +133,35 @@ exports[`Tests Snapshot 1`] = `
             [36m/>[39m
           [36m</span>[39m
           [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-            [33mdata-testid[39m=[32m\\"Cec ps\\"[39m
+            [33mclass[39m=[32m\\"sc-AxhCb jRGgxR\\"[39m
           [36m>[39m
-            [0mname: [0m
-            [0mCec ps[0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0mage: [0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0meye color: [0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0mcompany: [0m
-          [36m</span>[39m
-          [36m<span[39m
-            [33mclass[39m=[32m\\"sc-AxirZ igcuvi\\"[39m
-          [36m>[39m
-            [0memail: [0m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+              [33mdata-testid[39m=[32m\\"Cec ps\\"[39m
+            [36m>[39m
+              [0mname: [0m
+              [0mCec ps[0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mAge: [0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mEye color: [0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mCompany: [0m
+            [36m</span>[39m
+            [36m<span[39m
+              [33mclass[39m=[32m\\"sc-AxirZ KGJfC\\"[39m
+            [36m>[39m
+              [0mEmail: [0m
+            [36m</span>[39m
           [36m</span>[39m
         [36m</div>[39m
       [36m</div>[39m

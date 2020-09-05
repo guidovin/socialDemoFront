@@ -1,22 +1,22 @@
 import React, { FunctionComponent } from 'react';
 import styled from "styled-components";
-
-
-export interface User {
-  id: string
-  name?: string
-  age?: string
-  eyeColor?: string
-  company?: string
-  email?: string,
-  picture?: string 
-}
+import colors from "../../assets/css/colors";
+import { User } from "../../queries/Users/userQueries"
+// export interface User {
+//   id: string
+//   name?: string
+//   age?: string
+//   eyeColor?: string
+//   company?: string
+//   email?: string,
+//   picture?: string,
+//   friends?: [User] 
+// }
 
 const Container = styled.div`
-  /* background-color:yellow; */
+  background-color:${colors.secondary};
   padding:1em;
-  min-width:320px;
-
+  min-width:300px;
 
   display:grid;
   grid-gap:1em;
@@ -63,7 +63,7 @@ const FriendsDivider = styled.span`
 `;
 
 const UserDetails: FunctionComponent<{ user: User }> = ({ user }) => {
-  const { name, age, email, picture } = user;
+  const { name, age, email, picture, friends } = user;
   return(
     // react fragment example conainer is "embedded" in parent  hierarchy
     <>
@@ -72,12 +72,12 @@ const UserDetails: FunctionComponent<{ user: User }> = ({ user }) => {
         {picture && <img src={picture} alt="avatar loading..."/>}
       </UserImg>
       <UserInfoWrapper>
-        <UserInfo>name: { name }</UserInfo>
-        <UserInfo>age: { age }</UserInfo>
-        <UserInfo>email: { email }</UserInfo>
+        <UserInfo>{`Name: ${name}`}</UserInfo>
+        <UserInfo>{`Age: ${age}`}</UserInfo>
+        <UserInfo>{`Email: ${email}`}</UserInfo>
       </UserInfoWrapper>
     </Container>
-    <FriendsDivider>Friends:</FriendsDivider>
+    {friends && friends.length > 0 && <FriendsDivider>Friends:</FriendsDivider>}
     </>);
 }
 
