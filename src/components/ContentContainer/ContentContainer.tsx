@@ -72,18 +72,21 @@ function ContentContainer() {
         <UserDetails user={selectedUser}/>
       }
       { !selectedUser ?
-        <UserContainer data-testid="userContainer">
-         {data && data.find && data.find.map((user: User) => <UserCard key={user.id+""+Date.now()+"user"} user={user} onClick={() => setSelectedUser(user)}/>)}
-        </UserContainer>
-                      :
-        <UserContainer data-testid="friendsContainer">
-          { selectedUser.friends && 
-            selectedUser
-              .friends
-              .filter(user => user.name?.includes(filter))
-              .map((user: User) => <UserCard key={user.id+""+Date.now()+"friend"} user={user} onClick={() => setSelectedUser(user)}/>)
+          <UserContainer data-testid="userContainer">
+          { data && 
+            data.find && 
+            data.find.map((user: User) => <UserCard key={user.id+Date.now()+"user"} user={user} onClick={() => setSelectedUser(user)}/>)
           }
-        </UserContainer>
+          </UserContainer>
+        :
+          <UserContainer data-testid="friendsContainer">
+            { selectedUser.friends && 
+              selectedUser
+                .friends
+                .filter(user => user.name?.includes(filter))
+                .map((user: User) => <UserCard key={user.id+Date.now()+"friend"} user={user} onClick={() => setSelectedUser(user)}/>)
+            }
+          </UserContainer>
       }
       {(!selectedUser && data?.find?.length === 0) &&<NotFoundContainer>No User Found With Search Term: {filter}</NotFoundContainer>}
     </Container>);

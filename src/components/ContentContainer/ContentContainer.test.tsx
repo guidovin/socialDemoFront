@@ -133,9 +133,9 @@ it('Tests rendering with initial data and search query', async () => {
   await act(async()=> { fireEvent.input(searchBar, { target: { value: "Cecilia Phillips" } }) });
 
 
-  // //gets element with data-testid equal to the search value inputed. proving that the query was executed and related data rendered
-  // const getUserTestId = await waitForElement(() => screen.findByTestId("Cecilia Phillips"))
-  // expect(getUserTestId).toBeDefined();
+  //gets element with data-testid equal to the search value inputed. proving that the query was executed and related data rendered
+  const getUserTestId = await waitForElement(() => screen.findByTestId("Cecilia Phillips"))
+  expect(getUserTestId).toBeDefined();
   //gets element that contains the text from the result of the search value inputed. 
   //confirming that the query was executed and related data rendered. Example of /i notation.
   const getUserName = await waitForElement(() => screen.findByText(/Cecilia Phillips/i))

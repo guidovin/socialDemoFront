@@ -2,16 +2,6 @@ import React, { FunctionComponent } from 'react';
 import styled from "styled-components";
 import colors from "../../assets/css/colors";
 import { User } from "../../queries/Users/userQueries"
-// export interface User {
-//   id: string
-//   name?: string
-//   age?: string
-//   eyeColor?: string
-//   company?: string
-//   email?: string,
-//   picture?: string,
-//   friends?: [User] 
-// }
 
 const Container = styled.div`
   background-color:${colors.secondary};
