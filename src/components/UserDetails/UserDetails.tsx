@@ -47,16 +47,10 @@ const UserInfoWrapper = styled.span`
   min-width:150px;
 `;
 
-const FriendsDivider = styled.span`
-  font-size:2em; 
-  margin-left:20px;
-`;
 
 const UserDetails: FunctionComponent<{ user: User }> = ({ user }) => {
   const { name, age, email, picture, friends } = user;
   return(
-    // react fragment example conainer is "embedded" in parent  hierarchy
-    <>
     <Container>
       <UserImg>
         {picture && <img src={picture} alt="avatar loading..."/>}
@@ -67,8 +61,7 @@ const UserDetails: FunctionComponent<{ user: User }> = ({ user }) => {
         <UserInfo>{`Email: ${email}`}</UserInfo>
       </UserInfoWrapper>
     </Container>
-    {friends && friends.length > 0 && <FriendsDivider>Friends:</FriendsDivider>}
-    </>);
+  );
 }
 
 

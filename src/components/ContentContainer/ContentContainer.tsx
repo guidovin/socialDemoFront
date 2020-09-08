@@ -33,12 +33,23 @@ const UserContainer = styled.div<ContainerProps>`
 const Container = styled.div`
   background-color:${colors.background};
   min-width: 332px;
+  overflow: hidden;
 `;
 
 const NotFoundContainer = styled.span`
   font-size:2em;
   margin-left:50px;
+  text-overflow: ellipsis;
 `;
+
+
+const FriendsDivider = styled.span`
+  font-size:2em; 
+  margin-left:20px;
+  margin-top:20px;
+`;
+
+
 
 function ContentContainer() {
   const [ find, { loading:lazyLoading, data:lazyData, error:lazyError } ] = useLazyQuery(FIND_QUERY);
@@ -71,6 +82,11 @@ function ContentContainer() {
       { selectedUser && 
         <UserDetails user={selectedUser}/>
       }
+      {selectedUser && selectedUser.friends && selectedUser.friends.length > 0 && 
+        <FriendsDivider>
+          Friends:
+        </FriendsDivider>
+      }
       { !selectedUser ?
           <UserContainer data-testid="userContainer">
           { data && 
@@ -83,12 +99,13 @@ function ContentContainer() {
             { selectedUser.friends && 
               selectedUser
                 .friends
-                .filter(user => user.name?.includes(filter))
+                .filter(user => user.name?.toLocaleLowerCase().includes(filter.toLocaleLowerCase()))
                 .map((user: User) => <UserCard key={user.id+Date.now()+"friend"} user={user} onClick={() => setSelectedUser(user)}/>)
             }
           </UserContainer>
       }
       {(!selectedUser && data?.find?.length === 0) &&<NotFoundContainer>No User Found With Search Term: {filter}</NotFoundContainer>}
+      
     </Container>);
 }
 

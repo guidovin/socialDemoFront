@@ -49,8 +49,12 @@ const UserInfoArea = styled.span`
 `;
 const UserCard: FunctionComponent<{ user: User, onClick: Function }> = ({ user, onClick }) => {
   const { name, age, eyeColor, company, email, picture } = user;
+  const handler = (user: User) => {
+    window.scrollTo({ top: window.screenTop });
+    onClick(user);
+  }
   return(
-    <Container onClick={(event: SyntheticEvent) => {event.preventDefault(); onClick(user)}} data-testid="userCard">
+    <Container onClick={(event: SyntheticEvent) => { event.preventDefault(); handler(user) }} data-testid="userCard">
       <UserImg id="imgContainer">
         <img src={picture} alt="avatar loading..." />
       </UserImg>
