@@ -49,7 +49,7 @@ const UserInfoWrapper = styled.span`
 
 
 const UserDetails: FunctionComponent<{ user: User }> = ({ user }) => {
-  const { name, age, email, picture, friends } = user;
+  const { name, age, email, picture } = user;
   return(
     <Container>
       <UserImg>

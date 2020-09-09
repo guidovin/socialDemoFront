@@ -2,7 +2,7 @@
 import { gql, useQuery, ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
 
-
+//query fragment example
 const USER_FRAG = gql`
   fragment userFrag on User {
     index
@@ -19,6 +19,7 @@ const FIND_QUERY = gql`
   ${USER_FRAG}
   query FIND_QUERY($name:String){
     find(name:$name) {
+      # id and name could be inside fragment, they are left here as an ilustration of fragment use with other variables
       id
       name
       ...userFrag
