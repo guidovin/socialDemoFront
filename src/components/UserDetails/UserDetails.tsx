@@ -35,6 +35,7 @@ const UserInfo = styled.span`
     font-size:1.2em;
   };
 `;
+
 const UserImg = styled.span`
   min-height:200px;
   margin-left:30px;
@@ -46,7 +47,6 @@ const UserInfoWrapper = styled.span`
   justify-content:center;
   min-width:150px;
 `;
-
 
 const UserDetails: FunctionComponent<{ user: User }> = ({ user }) => {
   const { name, age, email, picture } = user;
@@ -63,6 +63,5 @@ const UserDetails: FunctionComponent<{ user: User }> = ({ user }) => {
     </Container>
   );
 }
-
 
 export default UserDetails;

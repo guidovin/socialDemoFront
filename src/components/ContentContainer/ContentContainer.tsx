@@ -42,14 +42,11 @@ const NotFoundContainer = styled.span`
   text-overflow: ellipsis;
 `;
 
-
 const FriendsDivider = styled.span`
   font-size:2em; 
   margin-left:20px;
   margin-top:20px;
 `;
-
-
 
 function ContentContainer() {
   const [ find, { loading:lazyLoading, data:lazyData, error:lazyError } ] = useLazyQuery(FIND_QUERY);

@@ -1,7 +1,6 @@
 
 import { gql, useQuery, ApolloClient, NormalizedCacheObject } from '@apollo/client';
 
-
 //query fragment example
 const USER_FRAG = gql`
   fragment userFrag on User {

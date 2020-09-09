@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Social Demo",
+  "name": "Social Network Demo with React/GraphQL",
   "icons": [
     {
       "src": "favicon.ico",
