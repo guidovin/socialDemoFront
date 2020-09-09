@@ -256,8 +256,10 @@ it("Tests Snapshot", async () => {
       </MockedProvider>)
     }
   );
-
-  expect(
+  //allow the render some time to exit loading state, snapshot would vary between loaded/not loaded
+  setTimeout(() => expect(
     prettyDOM()
-  ).toMatchSnapshot()
+  ).toMatchSnapshot(), 1500);
+
+  
 });
