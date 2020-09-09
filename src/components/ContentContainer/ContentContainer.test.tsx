@@ -5,6 +5,7 @@ import { FIND_QUERY } from "../../queries/Users/userQueries"
 import ContentContainer from "./ContentContainer"
 import { render, waitForElement, fireEvent, screen, prettyDOM } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+import 'jest-styled-components'
 // The component AND the query need to be exported
 //This is a low coverage test only to ilustrate testing and mocking with the apollo client/provider
 const mocks = [
