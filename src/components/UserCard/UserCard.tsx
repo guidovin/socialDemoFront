@@ -1,7 +1,7 @@
-import React, { FunctionComponent, SyntheticEvent } from 'react';
+import React, { FunctionComponent, SyntheticEvent, useEffect } from 'react';
 import styled from "styled-components";
 import colors from "../../assets/css/colors";
-
+import placeholder from "../../assets/avatar_loader.gif";
 export interface User {
   id: string
   name?: string
@@ -27,8 +27,12 @@ const Container = styled.div<ContainerProps>`
   flex-direction:column;
   padding:1em;
   max-height:400px;
-  min-width: 240px;
-  max-width:400px;
+  /*width could be replaced by max/min for more fluidity of user card width, fitting more to the screensize:*/
+  /* 
+    min-width: 240px; 
+    max-width:400px;
+  */ 
+  width:250px;
   cursor:pointer;
 `
 const UserInfo = styled.span`
@@ -47,16 +51,33 @@ const UserInfoArea = styled.span`
   justify-content:flex-start;
   margin:auto;
 `;
+
 const UserCard: FunctionComponent<{ user: User, onClick: Function }> = ({ user, onClick }) => {
   const { name, age, eyeColor, company, email, picture } = user;
   const handler = (user: User) => {
     window.scrollTo({ top: window.screenTop });
     onClick(user);
   }
+  useEffect(() => {
+    // Page is loaded
+    const objects = document.getElementsByClassName('asyncImage');
+    Array.from(objects).forEach((item: any) => {
+      // Start loading image
+      const img = new Image();
+      img.src = item.dataset.src;
+      // Once image is loaded replace the src of the HTML element
+      img.onload = () => {
+        item.classList.remove('asyncImage');
+        return item.nodeName === 'IMG' ? 
+          item.src = item.dataset.src :        
+          item.style.backgroundImage = `url(${item.dataset.src})`;
+      };
+    });
+  }, [])
   return(
     <Container onClick={(event: SyntheticEvent) => { event.preventDefault(); handler(user) }} data-testid="userCard">
       <UserImg id="imgContainer">
-        <img src={picture} alt="avatar loading..." />
+        <img src={placeholder} alt="avatar loading..." className="asyncImage" data-src={picture}/>
       </UserImg>
       <UserInfoArea>
         <UserInfo data-testid={name}>{`Name: ${name}`}</UserInfo>
