@@ -49,9 +49,9 @@ const FriendsDivider = styled.span`
 `;
 
 function ContentContainer() {
-  const [ find, { loading:lazyLoading, data:lazyData, error:lazyError } ] = useLazyQuery(FIND_QUERY);
+  const [ list, { loading:lazyLoading, data:lazyData, error:lazyError } ] = useLazyQuery(FIND_QUERY);
   const { loading:queryLoading, data:initialData, error:initialError } = useQuery(FIND_QUERY);
-  //sets data to be displayd to initial data or new data from search originated from the find() function exposed by lazyQuery hook
+  //sets data to be displayd to initial data or new data from search originated from the list() function exposed by lazyQuery hook
   const data = (lazyData && !lazyLoading && !lazyError) ? lazyData : ((initialData && !lazyLoading) ? initialData : null );
   const [ filter, setFilter ] = React.useState("");
   const [ selectedUser, setSelectedUser ] = React.useState<User | null>(null);
@@ -59,10 +59,10 @@ function ContentContainer() {
   // this introduced problems while testing and was replaced by the current cleaner version without "unexpected" async hook calls.
   // which seems to be for the better although doesnt showcase useEffect, so here is an example on its usage:
   /**
-   * this hook would call find(name:filter) whenever filter was changed by the Header search bar 
+   * this hook would call list(name:filter) whenever filter was changed by the Header search bar 
    * 
    * useEffect(()=> {
-   *  find({ variables : { data:filter }});
+   *  list({ variables : { data:filter }});
    * }, [filter])
    * 
    * */
@@ -72,7 +72,7 @@ function ContentContainer() {
   return(
     <Container>
       <Header 
-        setFilter={(name: string) => { find({ variables: { name }}); setFilter(name); }} 
+        setFilter={(name: string) => { list({ variables: { name }}); setFilter(name); }} 
         setSelectedUser={setSelectedUser} 
         selected={!!selectedUser}
       />
@@ -87,8 +87,8 @@ function ContentContainer() {
       { !selectedUser ?
           <UserContainer data-testid="userContainer">
           { data && 
-            data.find && 
-            data.find.map((user: User) => <UserCard key={user.id+Date.now()+"user"} user={user} onClick={() => setSelectedUser(user)}/>)
+            data.list && 
+            data.list.map((user: User) => <UserCard key={user.id+Date.now()+"user"} user={user} onClick={() => setSelectedUser(user)}/>)
           }
           </UserContainer>
         :
@@ -101,7 +101,7 @@ function ContentContainer() {
             }
           </UserContainer>
       }
-      {(!selectedUser && data?.find?.length === 0) &&<NotFoundContainer>No User Found With Search Term: {filter}</NotFoundContainer>}
+      {(!selectedUser && data?.list?.length === 0) &&<NotFoundContainer>No User Found With Search Term: {filter}</NotFoundContainer>}
       
     </Container>);
 }

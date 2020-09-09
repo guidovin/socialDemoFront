@@ -17,7 +17,7 @@ const USER_FRAG = gql`
 const FIND_QUERY = gql`
   ${USER_FRAG}
   query FIND_QUERY($name:String){
-    find(name:$name) {
+    list(name:$name) {
       # id and name could be inside fragment, they are left here as an ilustration of fragment use with other variables
       id
       name
@@ -50,7 +50,7 @@ function useFind({ name }: { name:string }): [User] | null {
   if (loading) return null;
   if (error) //example error handling, could be swapped to something that handled and prevented an app crash
     throw new Error(`Failed to fetch users with query:  ${FIND_QUERY}, and variables: ${{ name }}`);
-  return data.find;
+  return data.list;
 }
 
 //fetch example using apollo's client directly. for accessibility be used with WithApollo() HoF that inject client into props or apolloConsumer
@@ -58,7 +58,7 @@ async function find({ client, name } : { client: ApolloClient<NormalizedCacheObj
   const { data, loading, error } = await client.query({query:FIND_QUERY, variables:{ name }});
   if(loading) return null;
   if(error) throw new Error("Failed to fetch users");
-  return data.find;
+  return data.list;
 }
 
 export { 

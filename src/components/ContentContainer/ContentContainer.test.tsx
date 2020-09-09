@@ -15,7 +15,7 @@ const mocks = [
     },
     result: {
       data: {
-        find: [{ 
+        list: [{ 
           name: "Cecilia Phillips",
           age: "30",
           email: "ceciliaphillips@daido.com",
@@ -66,7 +66,7 @@ const mocks = [
     console.log("exec0")
     return ({
       data: {
-        find: [{ 
+        list: [{ 
           id: "123",
           name: "Cecilia Phillips",
           age: "30",
@@ -152,7 +152,7 @@ const snapshotMocks = [
     },
     result: {
       data: {
-        find: [{ 
+        list: [{ 
           name: "Cecilia Phillips",
           age: "30",
           email: "ceciliaphillips@daido.com",
@@ -203,7 +203,7 @@ const snapshotMocks = [
     console.log("exec 1")
     return ({
       data: {
-        find: [{ 
+        list: [{ 
           id: "123",
           name: "Cecilia Phillips",
           age: "30",
