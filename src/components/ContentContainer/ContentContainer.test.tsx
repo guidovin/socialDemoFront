@@ -3,7 +3,7 @@ import React from 'react';
 import { MockedProvider } from '@apollo/client/testing';
 import { FIND_QUERY } from "../../queries/Users/userQueries"
 import ContentContainer from "./ContentContainer"
-import { render, waitForElement, fireEvent, screen, prettyDOM } from '@testing-library/react';
+import { render, waitForElement, fireEvent, screen } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import 'jest-styled-components'
 // The component AND the query need to be exported
@@ -249,17 +249,20 @@ const snapshotMocks = [
 ]; 
  
 it("Tests Snapshot", async () => {
+  let _container: any;
   await act(async ()=> {
-    render(
+    const { container } = await render(
       <MockedProvider mocks={snapshotMocks} addTypename={false}>
         <ContentContainer/>
       </MockedProvider>)
+    _container = container;
     }
   );
-  //allow the render some time to exit loading state, snapshot would vary between loaded/not loaded
-  setTimeout(() => expect(
-    prettyDOM()
-  ).toMatchSnapshot(), 1500);
-
-  
+  //await some time before taking snapshot to avoid catching loading state
+  await waitForElement(() =>
+    setTimeout(() => {}, 2000)
+  )
+  expect(
+    _container.firstChild
+  ).toMatchSnapshot()
 });
